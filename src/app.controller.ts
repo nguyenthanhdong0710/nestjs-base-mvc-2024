@@ -36,7 +36,6 @@ export class AppController {
   @Get('/login')
   @Render('login/index')
   login(@Request() req, @Res() res: Response) {
-    console.log(req.user);
     if (req.user) return res.redirect(`/dashboard`);
     return '';
   }

@@ -45,33 +45,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
-
 ## NOTE
-- run `npx tailwindcss -i ./assets/tailwind.css -o ./public/css/main.css` when you change HTML styling.
+- run `npx tailwindcss -i ./assets/css/tailwind.css -o ./public/css/main.css` when you change HTML styling.
+- use this [free template](https://themewagon.com/themes/free-tailwind-css-html5-admin-dashboard-template-admin-one/).

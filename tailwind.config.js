@@ -2,7 +2,14 @@
 module.exports = {
   content: ['./views/**/*.hbs'],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '-1': '-1',
+      },
+      flexGrow: {
+        5: '5',
+      },
+    },
   },
   plugins: [],
 };
