@@ -47,6 +47,31 @@ export class AppController {
   }
 
   @UseGuards(AuthenticatedGuard)
+  @Get('/get-user')
+  getUser(@Request() req) {
+    return req.user;
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Get('/get-chart-data')
+  getChartData() {
+    return {
+      chart: {
+        type: 'line',
+      },
+      series: [
+        {
+          name: 'sales',
+          data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
+        },
+      ],
+      xaxis: {
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      },
+    };
+  }
+
+  @UseGuards(AuthenticatedGuard)
   @Get('/dashboard')
   @Render('dashboard/index')
   dashboard(@Request() req) {

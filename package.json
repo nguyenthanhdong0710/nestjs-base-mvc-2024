@@ -24,6 +24,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.0.0",
+    "apexcharts": "^3.46.0",
     "bcrypt": "^5.1.1",
     "connect-flash": "^0.1.1",
     "express-handlebars": "^7.1.2",
