@@ -12,7 +12,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
 
-  const hbs = create({ extname: 'hbs' });
+  const hbs = create({ extname: 'hbs', defaultLayout: 'main' });
   app.engine('hbs', hbs.engine);
   app.setViewEngine('hbs');
 

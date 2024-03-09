@@ -34,10 +34,9 @@ export class AppController {
   }
 
   @Get('/login')
-  @Render('login/index')
   login(@Request() req, @Res() res: Response) {
     if (req.user) return res.redirect(`/dashboard`);
-    return '';
+    return res.render('login/index', { layout: 'empty' });
   }
 
   @UseGuards(LoginGuard)
@@ -100,6 +99,13 @@ export class AppController {
   @Roles([EUserRole.USER])
   dashboardUser(@Request() req) {
     return { message: `Hello ADMIN ${req.user.username}` };
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Get('/users')
+  @Render('users/list')
+  listUser() {
+    return;
   }
 
   @Get('/logout')
