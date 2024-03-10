@@ -1,0 +1,64 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='/css/main.css' rel='stylesheet' />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
+    />
+    <script src='https://cdn.jsdelivr.net/npm/apexcharts'></script>
+    <title>NESTJS</title>
+  </head>
+  <body>
+    <div class='flex flex-col min-h-full'>
+      <header
+        class='sticky flex justify-center has-background-primary z-10'
+        style='height: 64px;'
+      >
+        HEADER
+        <button><a href='/logout'>Logout</a></button>
+      </header>
+      <main class='flex flex-grow' style='height: calc(100% - 64px);'>
+        <nav class='menu' style='height: calc(100% - 64px); width: 144px;'>
+          <p class='menu-label'>
+            General
+          </p>
+          <ul class='menu-list'>
+            <li><a>Dashboard</a></li>
+            <li><a>Customers</a></li>
+          </ul>
+          <p class='menu-label'>
+            Administration
+          </p>
+          <ul class='menu-list'>
+            <li><a>Team Settings</a></li>
+            <li>
+              <a class='is-active'>Manage Your Team</a>
+              <ul>
+                <li><a>Members</a></li>
+                <li><a>Plugins</a></li>
+                <li><a>Add a member</a></li>
+              </ul>
+            </li>
+            <li><a>Invitations</a></li>
+            <li><a>Cloud Storage Environment Settings</a></li>
+            <li><a>Authentication</a></li>
+          </ul>
+          <p class='menu-label'>
+            Transactions
+          </p>
+          <ul class='menu-list'>
+            <li><a>Payments</a></li>
+            <li><a>Transfers</a></li>
+            <li><a>Balance</a></li>
+          </ul>
+        </nav>
+        <div class='flex-grow p-3' style='width: calc(100% - 144px);'>
+          {{{body}}}
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

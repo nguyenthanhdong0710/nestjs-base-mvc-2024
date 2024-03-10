@@ -8,60 +8,85 @@
       href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
     />
     <script src='https://cdn.jsdelivr.net/npm/apexcharts'></script>
+    <script
+      src='https://code.jquery.com/jquery-3.7.1.js'
+      integrity='sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4='
+      crossorigin='anonymous'
+    ></script>
+
+    <script type='text/javascript'>
+      $(document).ready(() => { const fetchUser = () => { fetch('/get-user')
+      .then((res) => res.json()) .then((res) => {
+      $('#username').text(res.username); }); }; fetchUser();
+      document.querySelectorAll('a.menu-item').forEach((aTag) => { if
+      (aTag.attributes.href?.value === window.location.pathname) {
+      aTag.classList.add('is-active'); } else {
+      aTag.classList.remove('is-active'); } }); });
+
+    </script>
+
     <title>NESTJS</title>
   </head>
   <body>
-    <div class='flex flex-col min-h-full'>
-      <header
-        class='sticky flex justify-center bg-slate-300'
-        style='height: 64px;'
+    <div class='flex min-h-full'>
+      <nav
+        class='sticky top-0 menu has-background-primary-light h-screen py-5'
+        style='width: 200px;'
       >
-        HEADER
-        <button><a href='/logout'>Logout</a></button>
-      </header>
-      <main class='flex flex-grow' style='height: calc(100% - 64px);'>
-        <nav
-          class='menu bg-slate-500'
-          style='height: calc(100% - 64px); width: 144px;'
+        <p class='menu-label px-3'>
+          General
+        </p>
+        <ul class='menu-list'>
+          <li><a class='menu-item' href='/dashboard'>Dashboard</a></li>
+          <li>
+            <a class='menu-item' href='/users'>Members</a>
+            <ul>
+              <li><a class='menu-item'>Super Admin</a></li>
+              <li><a class='menu-item'>Admin</a></li>
+              <li><a class='menu-item'>Users</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </nav>
+      <main class='flex flex-col flex-grow'>
+        <header
+          class='sticky top-0 bg-white flex justify-between z-[100] p-3 border-b border-gray-100'
+          style='height: 64px;'
         >
-          <p class='menu-label'>
-            General
-          </p>
-          <ul class='menu-list'>
-            <li><a>Dashboard</a></li>
-            <li><a>Customers</a></li>
-          </ul>
-          <p class='menu-label'>
-            Administration
-          </p>
-          <ul class='menu-list'>
-            <li><a>Team Settings</a></li>
-            <li>
-              <a class='is-active'>Manage Your Team</a>
-              <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
-              </ul>
-            </li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-          </ul>
-          <p class='menu-label'>
-            Transactions
-          </p>
-          <ul class='menu-list'>
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
-          </ul>
-        </nav>
-        <div class='flex-grow p-3' style='width: calc(100% - 144px);'>
-          {{{body}}}
+          <div class='left-content font-bold flex items-center'>
+            APP NAME
+          </div>
+          <div class='ms-auto right-content'>
+            <div class='profile flex justify-center items-center gap-2'>
+              <div id='username'></div>
+              <div class='dropdown is-right is-hoverable'>
+                <div class='dropdown-trigger'>
+                  <img
+                    aria-haspopup='true'
+                    aria-controls='dropdown-menu3'
+                    src='/images/default-avatar.webp'
+                    alt='default-avatar'
+                    class='h-12 w-12 rounded-full'
+                  />
+                </div>
+                <div class='dropdown-menu' id='dropdown-menu3' role='menu'>
+                  <div class='dropdown-content'>
+                    <a href='/logout' class='dropdown-item'>
+                      Logout
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class='flex-grow'>
+          <div class='container p-3'>
+            {{{body}}}
+          </div>
         </div>
       </main>
     </div>
-
   </body>
 </html>

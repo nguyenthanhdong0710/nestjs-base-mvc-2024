@@ -24,7 +24,7 @@ async function bootstrap() {
       cookie: {
         sameSite: true,
         httpOnly: false,
-        maxAge: 60000,
+        maxAge: 1000 * 60 * 60, // 1h
       },
     }),
   );

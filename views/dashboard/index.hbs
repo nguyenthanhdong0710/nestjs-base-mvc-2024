@@ -1,22 +1,33 @@
 <div>
-  <script lang="ts">
+   <script type='text/javascript'>
 
-    const fetchUser = () => {
+ $(document).ready(()=> { 
+  const fetchUser = () => {
     fetch("/get-user").then(res => res.json()).then(res => {
     console.log(res);
     })
     };
     fetchUser();
 
-     const fetchChart = () => {
+     const fetchChart1 = () => {
     fetch("/get-chart-data").then(res => res.json()).then(res => {
-    var chart = new ApexCharts(document.querySelector("#chart"), res);
+    const chart = new ApexCharts(document.querySelector("#chart1"), res);
       chart.render();
     })
     };
-    fetchChart();
+    fetchChart1();
+
+      const fetchChart2 = () => {
+    fetch("/get-chart-data").then(res => res.json()).then(res => {
+    const chart = new ApexCharts(document.querySelector("#chart2"), res);
+      chart.render();
+    })
+    };
+    fetchChart2();
+  });
   </script>
   {{message}}
   <button><a href='/logout'>Logout</a></button>
-  <div id="chart"></div>
+  <div id="chart1"></div>
+  <div id="chart2"></div>
 </body>
